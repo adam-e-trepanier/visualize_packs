@@ -1,6 +1,13 @@
 # frozen_string_literal: true
 # typed: strict
 
+class LayoutTypes< T::Enum
+  enums do
+    Dot = new
+    Neato = new
+  end
+end
+
 class EdgeTodoTypes < T::Enum
   enums do
     Dependency = new
@@ -34,6 +41,8 @@ class Options < T::Struct
   prop :show_relationship_todos, T::Boolean, default: true
   prop :relationship_todo_types, T::Array[EdgeTodoTypes], default: EdgeTodoTypes.values
   prop :use_relationship_todos_for_layout, T::Boolean, default: false
+
+  prop :layout, String , default: LayoutTypes::Dot.serialize
 
   prop :show_teams, T::Boolean, default: true
   prop :show_node_todos, T::Boolean, default: true

@@ -13,6 +13,8 @@ class OptionsParser
     OptionParser.new do |opt|
       opt.on('--no-legend', "Don't show legend") { |o| options.show_legend = false }
 
+      opt.on('--layout=STRING', "Available graph types") { |o| options.layout = o }
+
       opt.on('--no-dependency-arrows', "Don't show accepted dependency arrows") { |o| options.show_dependencies = false }
       opt.on('--no-privacy-boxes', "Don't show privacy enforcement box on a pack") { |o| options.show_privacy = false }
       opt.on('--no-layers', "Don't show architectural layers") { |o| options.show_layers = false }
